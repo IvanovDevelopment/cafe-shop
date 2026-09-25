@@ -23,7 +23,7 @@ export function HomePage({ categories, products }: HomePageProps) {
       contentContainerStyle={styles.content}
       showsVerticalScrollIndicator={false}
     >
-      <Greeting name="Анна" />
+      <Greeting name="Виктор" />
       <PromoBanner
         title="Скидка 20%"
         subtitle="На все напитки до 12:00"
