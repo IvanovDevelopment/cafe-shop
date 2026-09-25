@@ -10,6 +10,7 @@ import {
 import { Product, ProductSize } from "@/entities/product";
 import { Button } from "@/shared/ui";
 import { theme } from "@/shared/config/theme";
+import { useAddToCart } from "@/features";
 
 interface ProductDetailPageProps {
   product: Product | null;
@@ -20,6 +21,7 @@ export function ProductDetailPage({ product }: ProductDetailPageProps) {
     product?.availableSizes?.[0],
   );
   const [selectedAddons, setSelectedAddons] = useState<string[]>([]);
+  const addToCart = useAddToCart();
 
   if (!product) {
     return (
@@ -110,9 +112,14 @@ export function ProductDetailPage({ product }: ProductDetailPageProps) {
         </View>
         <Button
           title="В корзину"
-          onPress={() =>
-            console.log("add", { product, selectedSize, selectedAddons })
-          }
+          onPress={() => {
+            addToCart({
+              product,
+              quantity: 1,
+              size: selectedSize,
+              addonIds: selectedAddons,
+            });
+          }}
         />
       </View>
     </View>
