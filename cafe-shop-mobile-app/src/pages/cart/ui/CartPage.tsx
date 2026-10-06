@@ -53,7 +53,7 @@ export function CartPage() {
         <Button
           title="Оформить заказ"
           fullWidth
-          onPress={() => router.push("/")}
+          onPress={() => router.push("/checkout")}
         />
       </View>
     </View>

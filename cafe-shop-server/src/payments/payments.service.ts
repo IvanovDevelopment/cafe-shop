@@ -45,7 +45,7 @@ export class PaymentsService {
             capture: true,
             confirmation: {
               type: 'redirect',
-              return_url: 'cafe-shop://payment-result',
+              return_url: 'cafeshopmobileapp://payment-result',
             },
             description: dto.description ?? `Заказ ${dto.orderId ?? ''}`.trim(),
             metadata: dto.orderId ? { orderId: dto.orderId } : undefined,
